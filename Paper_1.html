@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Categorization of Indigenous Beliefs in Pluralistic Healing Experiences</title>
+    <link rel="icon" href="favicon.ico"> 
+    <style>
+        /* 颜色变量和基础设置 (Copied from main portfolio) */
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-pink: #FF1493; /* Fuchsia/Hot Pink */
+            --border-style: 3px solid var(--color-black); 
+            --pixel-font: 'Courier New', monospace; 
+            --main-font: 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+        }
+
+        /* 像素风元素 */
+        .pixel-element {
+            display: inline-block;
+            color: var(--color-pink);
+            font-size: 1.2em;
+            margin: 0 5px;
+            font-family: var(--pixel-font);
+            line-height: 1;
+        }
+        .pixel-heart:before { content: '♥'; }
+        .pixel-star:before { content: '★'; }
+
+        /* 头部/导航样式 (Simplified for Blog Page) */
+        header {
+            background: var(--color-pink);
+            padding: 20px 0;
+            border-bottom: var(--border-style);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--pixel-font);
+            color: var(--color-black);
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: var(--color-black);
+        }
+
+        /* 返回链接 */
+        .back-link {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            padding: 8px 15px;
+            border: var(--border-style);
+            background-color: var(--color-white);
+            text-decoration: none;
+            color: var(--color-black);
+            font-weight: bold;
+            transition: background-color 0.1s;
+        }
+        .back-link:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+            box-shadow: 4px 4px 0px var(--color-black);
+        }
+
+        /* 主体内容 */
+        .container {
+            max-width: 1000px; /* 调整宽度以适应文章内容 */
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .blog-post {
+            border: var(--border-style);
+            padding: 30px;
+            background: var(--color-white);
+            margin-bottom: 40px;
+        }
+
+        .post-meta {
+            font-size: 0.9em;
+            color: var(--color-black);
+            margin-bottom: 25px;
+            border-bottom: 1px dashed var(--color-black);
+            padding-bottom: 10px;
+        }
+        
+        /* 标题和副标题 */
+        .post-title {
+            font-size: 2.2rem;
+            color: var(--color-pink);
+            text-shadow: 2px 2px 0 var(--color-black);
+            margin-bottom: 15px;
+        }
+
+        .post-subtitle {
+            font-size: 1.2rem;
+            font-family: var(--main-font);
+            font-weight: bold;
+            color: var(--color-black);
+            margin-bottom: 25px;
+        }
+
+        /* 内容样式 */
+        .post-content p, .post-content li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .post-content strong {
+            color: var(--color-pink);
+        }
+
+        .post-content h4 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--color-black);
+            border-left: 5px solid var(--color-pink);
+            padding-left: 10px;
+        }
+
+        /* 代码/Boxed Elements - 用于展示引用的出处或关键模型 */
+        .code-box {
+            font-family: var(--pixel-font);
+            font-size: 0.9em;
+            background: #f0f0f0;
+            border: 2px dashed var(--color-black);
+            padding: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        /* 表格样式 */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: var(--pixel-font);
+            font-size: 0.9em;
+        }
+        .tech-table th, .tech-table td {
+            border: 1px solid var(--color-black);
+            padding: 10px;
+            text-align: left;
+        }
+        .tech-table th {
+            background: var(--color-pink);
+            color: var(--color-black);
+        }
+        .tech-table tr:nth-child(even) {
+            background: #f7f7f7;
+        }
+        .citation {
+            font-size: 0.9em;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px dashed var(--color-black);
+        }
+
+        /* 底部 */
+        footer {
+            background: var(--color-black);
+            padding: 40px 0;
+            text-align: center;
+            border-top: var(--border-style);
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <a href="index.html#blog" class="back-link">
+            <span class="pixel-element pixel-star"></span> BACK
+        </a>
+        <div class="header-content">
+            <h1>RENEE PU'S BLOG NOTES</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="blog-post">
+            <h2 class="post-title">The Categorization of Indigenous Beliefs in Pluralistic Healing Experiences</h2>
+            <p class="post-subtitle">A study and discussion on the overlapping therapeutic spaces of Primary Religions, Mainstream Religions, and Modern Medicine.</p>
+            <div class="post-meta">
+                <span class="pixel-element pixel-heart"></span> Category: Comparative Mysticism (比较灵修学), Psychology of Religion, Cultural Anthropology | Date: Dec 2022
+            </div>
+
+            <div class="post-content">
+                <p>The study of spiritual experience (灵修体验) reflects a methodological individualistic tendency, compensating for the shortcomings of collective religious studies, and bridging the private and public spheres of religious experience. It is closely linked to the **sacredness (神圣性)** of religion, constituting its most unique aspect that distinguishes it from other ideological systems. By comparing the spiritual methods and experiences of different religions, one can better grasp the fundamental functions, forms, and unique characteristics of individual religions.</p>
+
+                <h4>Inspiration and Model Construction from Pluralistic Healing Experiences</h4>
+                <p>The author previously reported on the topic: “Witchcraft, Christianity, and Modern Medicine: How is Healing Accomplished?” Inspired by "The Australian Aboriginal Way to Seek Medical Help," the therapeutic space can be divided into: **Marpurn (Indigenous Beliefs), the Christian Church, and the Health Clinic (Modern Medicine)**. This tension (张力) exists similarly in Taiwan during the Japanese colonial period and in minority regions of China.</p>
+                
+                <p>The author attempts to integrate the tension between Marpurn, Yi Bimo beliefs (彝族毕摩信仰) and other <span style="color: var(--color-pink);">Primary Religions (原初宗教)</span>, Christianity and other <span style="color: var(--color-pink);">Mainstream Religions (主流宗教)</span>, and <span style="color: var(--color-pink);">Modern Medicine (现代医学)</span> into a relationship model of <strong style="color: var(--color-pink);">commonality, complementarity, and opposition</strong> among witchcraft, religion, and medicine. The therapeutic spaces of these three do not completely exclude each other, nor can they be fully integrated.</p>
+
+                <div class="tech-table">
+                    <thead>
+                        <tr><th>Healing Space</th><th>Common Ground between Witchcraft and Christianity</th><th>Complementarity between Witchcraft and Modern Medicine</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong style="color: var(--color-pink);">Witchcraft / Primary Religion</strong></td>
+                            <td>Healing power comes from a transcendent subject (spirit/deity or God/上帝); Focus on the introspective search for the spiritual etiology of disease; Long-term historical cooperation and a tendency toward re-witchcrafting (再巫术化).</td>
+                            <td>Aids the deceased in returning to the spiritual world (spirit to spirit, flesh to flesh/肉归肉、灵归灵); Provides a function of care (安养), transforming isolated individuals into interdependent groups, sharing the risk of illness through rituals.</td>
+                        </tr>
+                        <tr>
+                            <td><strong style="color: var(--color-pink);">Modern Medicine</strong></td>
+                            <td colspan="2">The opposition to witchcraft/religion lies in its structural theoretical difference, stemming from different understandings of death and health.</td>
+                        </tr>
+                    </tbody>
+                </div>
+                
+                <h4>Categorization of Indigenous Beliefs and Model Revision</h4>
+                <p>In the initial model, the distinction between the connotations of witchcraft (巫术) and religion (宗教) was unclear, leading to a dilemma when incorporating Taoism (道教): as a "witchcraft-infused religion (巫化的宗教)," it was difficult to define it as either witchcraft or religion.</p>
+                
+                <p>Consequently, the author revised the tripartite model of **“Witchcraft-Religion-Medicine”** to **“Indigenous Beliefs (本土信仰)-External Religion (外来宗教)-Modern Medicine”**. This revision emphasizes the relationship between the belief and a <strong style="color: var(--color-pink);">specific territory</strong>: Indigenous Beliefs struggle to exist outside a certain geographical area, and their adherents are mechanically united by factors like kinship (血缘) and geography (地缘). This necessitates a further examination of the connotation of Indigenous Beliefs, specifically whether to comprehensively include witchcraft, primary religions, and Shamanism (萨满教).</p>
+                
+                <ul>
+                    <li><strong>Shamanism (萨满教) and Primary Religion</strong>: Shamanism is often regarded as the paradigm of animism (万物有灵论). It is associated with hunting societies and societies practicing animal husbandry, fulfilling the vital function of allocating living resources. Healing in Shamanism is based on the body composed of the soul and life force, representing a compensation for human consumption of animal life force, and thus an equal exchange system.</li>
+                    <li><strong>The Connotation and Limitations of Shamanism</strong>: Shamanism also attempts to create an advantageous position for humans through rituals like imitating the deer and ancestor worship (祖先祭祀), promoting a **“Deliberate Optimism (刻意的乐观主义)”**. However, classifying rituals merely through behavior (e.g., Sky Burial/天葬 ceremony) is ambiguous. Dissolving all primary religions with similar logic into the grand context of “Shamanism” overlooks the characteristics of its hunter-gatherer society origin.</li>
+                </ul>
+
+                <h4>The Logic of Healing: A Dichotomy Criterion for Witchcraft/Religion</h4>
+                <p>When describing the tension of multicultural medical experiences faced by indigenous peoples, the distinction should disregard performative elements (表演性元素) and therapeutic methods, instead relying on the differences in the <strong style="color: var(--color-pink);">fundamental logic of the healing plan</strong>. This is also the main criterion used by 19th-century anthropologists to distinguish between witchcraft and religion: namely, the **ability to control supernatural powers**.</p>
+                
+                <div class="code-box">
+                    // Examples of Differences in Healing Logic<br>
+                    - In "The Sorceress (女巫师)": The logic of witchcraft healing is <span style="color: var(--color-pink);">Exorcising/Appeasing Ghosts (驱鬼/安抚鬼魂)</span>; The logic of Christian healing is <span style="color: var(--color-pink);">Blessing from God (天主赐福)</span>.<br>
+                    - In "The Way to Seek Medical Help (求诊之道)": The logic of Marpurn healing is <span style="color: var(--color-pink);">Driving out Evil Spirits (驱赶恶灵)</span>; The logic of the Christian church leader is <span style="color: var(--color-pink);">Prayer and Anointing (祈祷赐油)</span>.<br>
+                </div>
+
+                <p>The difference lies in whether the practitioner acts as the <span style="color: var(--color-pink);">source of the healing power</span> or as a <span style="color: var(--color-pink);">medium between the patient and the healing power</span>. This broadly aligns with the binary distinction between witchcraft and religion.</p>
+                
+                <p>Therefore, the **land consciousness (土地意识)** and <strong style="color: var(--color-pink);">cultural background</strong> associated with primary religions are crucial. The indigenous beliefs of aboriginals can be referred to as “Primary Religion” under a temporally remote understanding. Ultimately, the categorization of **“Primary Religion/Mainstream Religion/Modern Medicine”** is generally valid, and it provides a more vivid description of the dynamic conflict of multiple beliefs than the dichotomy of witchcraft/religion.</p>
+                
+                <div class="citation">
+                    <h4 style="margin-top:0;">References</h4>
+                    <ol>
+                        <li>魏明德/沈秀臻. 文化与灵性——跨宗教传统的关照与实现 [M]. 上海: 中西书局, 2016-5.</li>
+                        <li>Keith Thomas. Religion and the Decline of Magic: Studies in Popular Beliefs in Sixteenth and Seventeenth Century England. (Chinese translation: 芮传明、梅剑华 译. 《16和17世纪英格兰大众信仰研究》. 上海: 译林出版社, 2019.)</li>
+                        <li>北大三院天价停尸费收费项目单. (Online: https://new.qq.com/omn/20220412/20220412A047CT00.html, Accessed: 2022/6/10).</li>
+                        <li>Roberte Hamayon. "Shamanism and the hunters of the Siberian forest: soul, life force, spirit."</li>
+                        <li>Gilles Boileau. "Wu and Shaman." *Bulletin of the School of Oriental and African Studies, University of London*, Vol. 65, No. 2 (2002), pp. 350-378.</li>
+                    </ol>
+                    </ol>
+                </div>
+            </div>
+        </article>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoulDex - Renee Portfolio</title>
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Color variables and basic settings (consistent with homepage) */
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-pink: #FF1493; /* Neon Pink/Magenta */
+            --border-style: 3px solid var(--color-black); /* Thick black border */
+            --pixel-font: 'Courier New', monospace; /* Simulating pixelated feel */
+            --main-font: 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Pixel style elements */
+        .pixel-element {
+            display: inline-block;
+            color: var(--color-pink);
+            font-size: 1.2em;
+            margin: 0 5px;
+            font-family: var(--pixel-font);
+            line-height: 1;
+        }
+        .pixel-heart:before { content: '♥'; }
+        .pixel-star:before { content: '★'; }
+
+        /* Header (consistent with homepage) */
+        header {
+            background: var(--color-pink);
+            padding: 20px 0;
+            border-bottom: var(--border-style);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: box-shadow 0.3s;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--pixel-font);
+            color: var(--color-black);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed var(--color-black);
+            color: var(--color-pink);
+            text-shadow: 1px 1px 0 var(--color-black);
+        }
+
+        /* Main content area */
+        .main-content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Project detail card style */
+        .project-details {
+            border: var(--border-style);
+            padding: 30px;
+            background: var(--color-white);
+            margin-bottom: 40px;
+        }
+
+        /* Video/Hero image area - Modified to display an image without fixed height */
+        .hero-image-container { 
+            width: 100%;
+            height: auto; 
+            background-color: var(--color-black);
+            border: var(--border-style);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .hero-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* --- Image Gallery Styles --- */
+        .design-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .gallery-item {
+            border: 2px solid var(--color-black); 
+            padding: 8px;
+            background-color: var(--color-white);
+            box-shadow: 6px 6px 0px var(--color-pink); 
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .gallery-item:hover {
+            box-shadow: 8px 8px 0px var(--color-pink);
+            transform: translate(-2px, -2px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* --- Image Gallery Styles End --- */
+
+
+        /* Tag styles */
+        .tags-container {
+            border-top: var(--border-style);
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .tag {
+            display: inline-block;
+            font-size: 0.9em;
+            font-family: var(--pixel-font);
+            color: var(--color-black);
+            background-color: var(--color-white);
+            border: var(--border-style);
+            padding: 4px 10px;
+            margin: 5px 5px 5px 0;
+            transition: background-color 0.1s, color 0.1s;
+        }
+        .tag:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+        }
+
+        /* Publication style */
+        .publication-item {
+            border: 1px solid var(--color-pink);
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fff0f5;
+        }
+        .publication-title {
+            font-weight: bold;
+            color: var(--color-pink);
+            margin-bottom: 5px;
+        }
+        .publication-authors {
+            font-style: italic;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        .publication-venue {
+            font-size: 0.9em;
+        }
+
+        /* Navigation buttons */
+        .navigation {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .nav-button {
+            text-decoration: none;
+            color: var(--color-white);
+            font-weight: bold;
+            padding: 10px 20px;
+            border: var(--border-style);
+            background-color: var(--color-pink);
+            transition: background-color 0.1s ease, box-shadow 0.1s ease, transform 0.1s;
+            display: inline-block;
+            font-family: var(--pixel-font);
+            margin: 0 10px;
+        }
+        .nav-button:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+            box-shadow: 4px 4px 0px var(--color-black);
+            transform: translate(-2px, -2px);
+        }
+        .nav-button.secondary {
+            background-color: var(--color-white);
+            color: var(--color-black);
+        }
+        .nav-button.secondary:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>ShoulDex <span class="pixel-element pixel-heart"></span></h1>
+            <p style="font-family: var(--pixel-font);">A Panel-Woven Textile Sensing System</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="hero-image-container">
+            <img src="Shouldex_Hero.png" alt="ShoulDex System Architecture Diagram: Textile Sensing, Multi-head LSTM, and UI Feedback Loop" style="width: 100%; height: auto; display: block;">
+        </div>
+
+        <section class="project-details">
+            <h2 id="abstract">Abstract</h2>
+            <p>
+                ShoulDex is an innovative panel-woven textile sensing system designed for Rotator Cuff (RC) rehabilitation training. It seamlessly integrates sensors into a wearable shoulder support fabric to monitor and evaluate the user's shoulder range of motion and movement quality during rehabilitation exercises in real-time. The system aims to provide a comfortable, non-invasive alternative to traditional expensive or bulky motion capture equipment, helping patients and physical therapists track progress remotely and ensure the accuracy of rehabilitation movements.
+            </p>
+
+            <h2 id="design-mechanism">Design & Mechanism</h2>
+            <p>
+                We utilize advanced soft textile sensors and optical motion capture technology for data acquisition and processing to model shoulder movements. We created precise sensing channels and pressure/flexion sensing areas within the textile. This panel-woven structure not only ensures the fabric's flexibility and breathability but also the accuracy and consistency of the sensors across different shoulder postures.
+            </p>
+            <p>
+                The raw motion data collected by the textile sensors is analyzed using a **Multi-head LSTM (Long Short-Term Memory) regression model** [cite: 828, 833] [cite_start]to accurately determine shoulder joint angles and classify compensatory movements[cite: 823]. We developed a microcontroller-based processing unit that resolves the textile sensing data and transmits it via Bluetooth to a mobile application for visualization and real-time feedback, enabling real-time motion monitoring.
+            </p>
+
+            <h2 id="applications">Application & Impact</h2>
+            <p>
+                The primary application scenario for ShoulDex is home-based and remote rehabilitation. By using the textile sensors to identify joint movement angles and classify compensatory behaviors, the system provides a visual interface to help users correctly perform exercises even without a physical therapist present, thereby improving rehabilitation adherence and effectiveness. This design demonstrates the immense potential of smart textiles in the medical and healthcare domain.
+            </p>
+
+            <h2 id="publications">Publications</h2>
+            <div class="publication-item">
+                <div class="publication-title">ShoulDex: A Panel-Woven Textile Sensing System for Rotator Cuff Rehabilitatio</div>
+                <div class="publication-authors">Nianchong Qu, Jiaqi Mo, Li Liu, Xinyi Pu, Sheng Zhang, and Qi Wang.</div>
+                <div class="publication-venue">2025. ShoulDex: A Panel-Woven Textile Sensing System for Rotator Cuff Rehabilitation. In Companion of the the 2025 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp Companion ’25), October 12–16, 2025, Espoo, Finland. ACM, New York, NY, USA, 5 pages. https://doi.org/10.1145/3714394.3750708</div>
+            </div>
+
+            <div class="tags-container">
+                <span class="tag">Wearable Sensor</span>
+                <span class="tag">Textile HCI</span>
+                <span class="tag">Digital Knitting</span>
+                <span class="tag">Rehabilitation</span>
+                <span class="tag">Smart Fabric</span>
+                <span class="tag">Healthcare Technology</span>
+            </div>
+        </section>
+
+        <nav class="navigation">
+            <a href="index.html#research" class="nav-button secondary">← Back to Portfolio</a>
+            <a href="Conjugate_Breathing_1.html" class="nav-button">Next Project →</a>
+        </nav>
+    </main>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

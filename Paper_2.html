@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Occult Elements in Urban Chinese Life: The Psychologization of Tarot Reading</title>
+    <link rel="icon" href="favicon.ico"> 
+    <style>
+        /* 颜色变量和基础设置 (Copied from main portfolio) */
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-pink: #FF1493; /* Fuchsia/Hot Pink */
+            --border-style: 3px solid var(--color-black); 
+            --pixel-font: 'Courier New', monospace; 
+            --main-font: 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+        }
+
+        /* 像素风元素 */
+        .pixel-element {
+            display: inline-block;
+            color: var(--color-pink);
+            font-size: 1.2em;
+            margin: 0 5px;
+            font-family: var(--pixel-font);
+            line-height: 1;
+        }
+        .pixel-heart:before { content: '♥'; }
+        .pixel-star:before { content: '★'; }
+
+        /* 头部/导航样式 (Simplified for Blog Page) */
+        header {
+            background: var(--color-pink);
+            padding: 20px 0;
+            border-bottom: var(--border-style);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--pixel-font);
+            color: var(--color-black);
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: var(--color-black);
+        }
+
+        /* 返回链接 */
+        .back-link {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            padding: 8px 15px;
+            border: var(--border-style);
+            background-color: var(--color-white);
+            text-decoration: none;
+            color: var(--color-black);
+            font-weight: bold;
+            transition: background-color 0.1s;
+        }
+        .back-link:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+            box-shadow: 4px 4px 0px var(--color-black);
+        }
+
+        /* 主体内容 */
+        .container {
+            max-width: 1000px; /* 调整宽度以适应文章内容 */
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .blog-post {
+            border: var(--border-style);
+            padding: 30px;
+            background: var(--color-white);
+            margin-bottom: 40px;
+        }
+
+        .post-meta {
+            font-size: 0.9em;
+            color: var(--color-black);
+            margin-bottom: 25px;
+            border-bottom: 1px dashed var(--color-black);
+            padding-bottom: 10px;
+        }
+        
+        /* 标题和副标题 */
+        .post-title {
+            font-size: 2.2rem;
+            color: var(--color-pink);
+            text-shadow: 2px 2px 0 var(--color-black);
+            margin-bottom: 15px;
+        }
+
+        .post-subtitle {
+            font-size: 1.2rem;
+            font-family: var(--main-font);
+            font-weight: bold;
+            color: var(--color-black);
+            margin-bottom: 25px;
+        }
+
+        /* 内容样式 */
+        .post-content p, .post-content li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .post-content strong {
+            color: var(--color-pink);
+        }
+
+        .post-content h4 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--color-black);
+            border-left: 5px solid var(--color-pink);
+            padding-left: 10px;
+        }
+
+        /* Boxed Elements and References */
+        .code-box {
+            font-family: var(--pixel-font);
+            font-size: 0.9em;
+            background: #f0f0f0;
+            border: 2px dashed var(--color-black);
+            padding: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
+            white-space: pre-wrap; /* Allow text wrapping */
+        }
+        
+        .ref-box {
+            font-family: var(--main-font);
+            font-size: 0.9em;
+            background: #f7f7f7;
+            border: 1px solid var(--color-black);
+            padding: 15px;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        /* 底部 */
+        footer {
+            background: var(--color-black);
+            padding: 40px 0;
+            text-align: center;
+            border-top: var(--border-style);
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <a href="index.html#blog" class="back-link">
+            <span class="pixel-element pixel-star"></span> BACK
+        </a>
+        <div class="header-content">
+            <h1>RENEE PU'S HCI & SOCIAL NOTES</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="blog-post">
+            <h2 class="post-title">Occult Elements in Urban Chinese Life</h2>
+            <p class="post-subtitle">The Psychologization of Tarot Reading</p>
+            <div class="post-meta">
+                <span class="pixel-element pixel-heart"></span> Category: Sociology, Psychology, Mysticism, HCI/UX Research | Date: April 2023
+            </div>
+
+            <div class="post-content">
+                <p>Tarot (塔罗) has spread rapidly across China in recent years, largely via the Internet. In Shanghai, "Tarot stalls" (塔罗摆摊) have appeared in many shopping mall atriums, and dedicated physical stores have been established. Institutions like the RAS Asian Tarot Association have developed a systematic curriculum and certify Tarot consultants (占卜师).</p>
+                <p>The online Tarot industry is even more prevalent: a single video on the video platform Bilibili discussing Tarot has garnered over 4.02 million views. Apps focusing on astrology and emotional prediction, such as "Zhǔnle" (准了), charge approximately ¥39.9 per Tarot reading and hold a 4.7 rating on the App Store (49k ratings). Another specialized Tarot app, "Tarot Card & Astrology" (塔罗牌占星), maintains a 4.9 rating (38k ratings).</p>
+
+                <h4><strong style="color: var(--color-pink);">Structure of Tarot and its Modern Adoption</strong></h4>
+                <p>Tarot is a system of symbolic signs, comprising 78 cards: 22 Major Arcana (大阿尔卡纳牌) and 56 Minor Arcana (小阿尔卡纳牌). The Major Arcana, featuring images like The Empress, Death, and The Wheel of Fortune, are the primary reference in a reading. The divination begins by drawing a single card as the main card, the "Tarot Spirit" (塔罗精灵), which guides the interpretation of all subsequent draws.</p>
+                <p>In the 1970s, the West experienced a resurgence of mysticism. Edgar Morin attributed the modern success of astrology—which broke the traditional stereotype of "feudal superstition" (封建迷信)—to the "cultural crisis of the bourgeoisie". A survey of the French public showed astrology attracting "white-collar workers in the centers of the most densely populated large cities," rather than low-status groups.</p>
+                <p>Astrology's success in cities, and its "quasi-scientific" nature requiring rigorous calculation, made it part of the urban subculture. Similarly, as occult elements like Tarot entered mainland China via Japan and Taiwan, they were naturally imbued with a cultural attribute, first becoming popular among the young urban population, a distinctly different demographic background compared to the expansion of Christianity in rural China.</p>
+
+                <h4><strong style="color: var(--color-pink);">The Universal Youth Crisis and Tarot's Therapeutic Function</strong></h4>
+                <p>The rise of Tarot among urban Chinese youth is less about a "cultural crisis of the bourgeoisie" and more about the universal crises faced by young people. The dramatic shift from adolescence to adulthood (从未成年到成年的剧变) and the individual projection of modern social ailments—such as a sense of meaninglessness (意义感缺失) and urban loneliness (城市孤独症)—leave youth ill-equipped to cope.</p>
+                <p>For this demographic, Tarot consultation functions similarly to psychological counseling, offering assistance for mental distress. However, Tarot provides a lower-barrier-to-entry alternative:</p>
+                <ul>
+                    <li><strong style="color: var(--color-pink);">Psychologically:</strong> Counseling often presumes a negative state, requiring the client (来访者) to admit to their psychological sub-health (心理亚健康状态). Tarot, by contrast, conceals this admission, being framed as a <span style="color: var(--color-pink);">non-health-related spiritual experience</span> (灵性体验), which is more acceptable.</li>
+                    <li><strong style="color: var(--color-pink);">Economically:</strong> Tarot consultants are often legalized as health consultants (健康咨询师), and their price per session (客单价) is significantly lower than that of psychologists.</li>
+                    <li><strong style="color: var(--color-pink);">Socially:</strong> The consultant's theoretical ignorance of the client's past experiences does not invalidate the session's effectiveness, and the one-time nature of the service provides better privacy protection (隐私保护).</li>
+                </ul>
+
+                <h4><strong style="color: var(--color-pink);">The Psychologization of Tarot Theory</strong></h4>
+                <p>The modern Tarot industry not only shares functional commonalities with psychological counseling but also boasts a systematic psychologization of its underlying theory, showing similarities to psychoanalysis (精神分析).</p>
+                
+                <div class="code-box">
+                    "The interpretation of the Tarot cards is not merely a product of unconscious forces; it is the result of a chain of conscious activities. There is a silent mechanism at work that connects with the power of our subconscious."
+                </div>
+                
+                <p>By leveraging Freud's topographic model (conscious/preconscious/unconscious), Tarot's efficacy is explained as the understanding of one's own <span style="color: var(--color-pink);">unconscious (无意识)</span>, thus completing the modernization of Tarot-mysticism through the introduction of psychological vocabulary.</p>
+
+                <p>Following Freud's individual unconscious theory, Carl Jung introduced the concept of the <span style="color: var(--color-pink);">collective unconscious (集体无意识)</span>—a shared spiritual heritage of humanity. Jung's method for accessing this is Active Imagination (积极想象技术), exemplified by Kalff's Sandplay Therapy (沙盘游戏). The client's selection of sand figures is seen as a reciprocal process: "not only do you choose the figures, but the figures also choose you".</p>
+                
+                <p>The widespread "Open-Card Tarot" (明牌塔罗) videos on Bilibili operate on this principle: viewers select a card based purely on the visible image, unaware of its divinatory meaning. The consultant then interprets the image, helping the viewer recognize their inner unconscious. These open-card videos are more highly rated than "Full-Blind Tarot" videos, suggesting a stronger sense of spiritual confirmation (灵验的体验感).</p>
+                
+                <p>The Tarot consultant often leans more toward the collective unconscious theory, framing this shared heritage as a <span style="color: var(--color-pink);">supra-individual wisdom</span> (超个体性智慧). Eliade linked religious experience to the unconscious in *The Sacred and the Profane*, and Jung viewed mythological thought as a reflection of the collective unconscious. Ultimately, whether using Sandplay to treat psychological disorders, or consulting the Tarot Spirit (塔罗精灵), all employ Active Imagination to give form to the unconscious.</p>
+
+                <h4><strong style="color: var(--color-pink);">Fieldwork and User Experience: Analyzing the "Consultant-Centric" Ritual</strong></h4>
+                
+                <p>Crucially, the client's interpretation of the Tarot reading is heavily dependent on the individual explanation provided by the Tarot consultant (塔罗师). Only a reading that directly addresses the client's specific questions will be truly convincing.</p>
+                
+                <div class="code-box">
+                    <strong>My HCI Pilot Study:</strong> Prior to drafting this analysis, I conducted a <strong style="color: var(--color-pink);">two-round, one-on-one interview study</strong> with 10 participants performing Tarot readings. In the first round, interpretations relied solely on the generic symbolic meanings from standard texts. In the second round (one week later), the interpretation was adapted to the specific, contextualized questions raised by the participants. All 10 participants reported that the second, personalized reading provided a significantly stronger sense of <strong style="color: var(--color-pink);">efficacy and 'hit rate' (灵验的体验感)</strong>.
+                </div>
+                
+                <p>This observation underscores the critical role of the consultant's <strong style="color: var(--color-pink);">'original adaptation' </strong>(原创性改编) and emotional labor in shaping the final user experience and spiritual connection (灵性体验) within this interactive ritual. The consultant and client share a focal point, rapidly establishing an emotional bond, forming an <strong style="color: var(--color-pink);">Interaction Ritual Chain</strong>. This sensual experience alleviates the modern conflict of scientific rationalism by granting meaning to random probability.</p>
+
+                <h4><strong style="color: var(--color-pink);">Safety and Meaning: Tarot's Anxiety-Reducing Function</strong></h4>
+                <p>Malinowski argued that magic "ritualizes man's optimism," emphasizing its psychological function in reducing anxiety. Keith Thomas also viewed magic through the lens of anxiety, suggesting that "no society can dispense with it".</p>
+                <p>However, describing Tarot as merely an "optimistic ritual" may be inaccurate, as the divination includes both favorable and unfavorable predictions (正位/逆位). The success of Tarot in alleviating anxiety, I argue, stems from the sense of <span style="color: var(--color-pink);">security</span> it offers by presenting a "determined future". If the result is positive, it provides a positive psychological suggestion; if negative, it encourages the adoption of a passive Wald's criterion ("prepare for the worst"), framing the certainty within a rational negative expectation. Furthermore, consultants often provide caveats, allowing for the client's subjective agency to potentially mitigate bad outcomes.</p>
+                <p>Beyond security, Tarot bestows a sense of <span style="color: var(--color-pink);">meaning</span>. Eliade wrote that discovering one's life is linked to stellar phenomena "offers a new significance to your life... instead, the horoscope points out how intimately you are connected with the entire cosmos... endowed with an incomparable dignity". This spiritual dependence evolves the individual from a "solitary monad" (孤独单子) into a "supra-individual" (超个体).</p>
+
+                <h4><strong style="color: var(--color-pink);">The Return of the Occult: From "New Magic" to "Quasi-Science"</strong></h4>
+                <p>The expansion of mysticism presents a complex phenomenon that can be understood as religious belief, folk culture, or even entertainment. However, even understood as a form of occult belief, it is not necessarily incompatible with modernity. Keith Thomas argued that "the abolition of magic was a precondition for the rise of technology, not the reverse", aligning with Weber's view that magic was "one of the most serious obstacles to the rationalization of economic life".</p>
+                <p>The popular rejection of magic in the 16th-17th centuries was often a conformity to the authority of the intellectual elite. In that era, science could be perceived as a <span style="color: var(--color-pink);">"new magic" (新巫术)</span> by the masses. Conversely, in the 20th-21st century's intellectual milieu, occultism can return as <span style="color: var(--color-pink);">"quasi-science" (准科学)</span>: just as astrology complemented astronomy in the 16th century, Tarot has achieved its resurgence today through psychologization.</p>
+                
+            </div>
+        </article>
+    </main>
+    
+    <div class="container" style="padding-top: 0; margin-top: -30px;">
+        <h4 style="border-left: 5px solid var(--color-pink); color: var(--color-pink); padding-left: 10px;">REFERENCES</h4>
+        <div class="ref-box">
+            <ol>
+                <li>RAS亚洲塔罗协会 [RAS Asian Tarot Association]. Website: http://ras306.com/</li>
+                <li>迪亚夫人.塔罗全书 [Madame Dia. The Complete Book of Tarot]. 哈尔滨人民出版社. 2009. (Chinese translation)</li>
+                <li>申荷永. 心理分析：理解与体验 [Shen H.Y. Psychoanalysis: Understanding and Experience]. 生活·读书·新知三联书店. 2004. (Chinese original)</li>
+                <li>李世武. 巫术焦虑与艺术治疗研究 [Li S.W. Research on Witchcraft Anxiety and Art Therapy]. 中国社会科学出版社. 2005. (Chinese original)</li>
+                <li>Collins, Randall. *Interaction Ritual Chains*. Princeton University Press. 2004. (Translated by Lin J., Wang P., Song L. 互动仪式链. 商务印书馆. 2012.)</li>
+                <li>Eliade, Mircea. *The Sacred and the Profane: The Nature of Religion*. New York: Harcourt Brace Jovanovich, 1959. (Translated by Wang J.G. 神圣与世俗. 华夏出版社. 2002. pp. 122-123)</li>
+                <li>Eliade, Mircea. *Mysticism, Magic and Cultural Fashions*. New York: Harper & Row, 1976. (Translated by Song L.D., Lu Q. 神秘主义巫术与文化风尚. 光明日报出版社. 1990. pp. 78-89)</li>
+                <li>Thomas, Keith. *Religion and the Decline of Magic: Studies in Popular Beliefs in Sixteenth and Seventeenth Century England*. London: Weidenfeld and Nicolson, 1971. (Translated by Rui C.M., Mei J.H. 16和17世纪英格兰大众信仰研究. 译林出版社. 2019. pp. 844-863)</li>
+            </ol>
+        </div>
+
+        <h4 style="border-left: 5px solid var(--color-black); color: var(--color-black); padding-left: 10px;">EXPLANATORY NOTES</h4>
+        <div class="ref-box">
+            <p><strong>Note 1:</strong> The 22 Major Arcana cards are: 0-The Fool, 1-The Magician, 2-The High Priestess, 3-The Empress, 4-The Emperor, 5-The Hierophant, 6-The Lovers, 7-The Chariot, 8-Strength, 9-The Hermit, 10-Wheel of Fortune, 11-Justice, 12-The Hanged Man, 13-Death, 14-Temperance, 15-The Devil, 16-The Tower, 17-The Star, 18-The Moon, 19-The Sun, 20-Judgement, 21-The World.</p>
+            <p><strong>Note 2:</strong> The Minor Arcana consist of four suits (Swords, Wands, Cups, Pentacles), each with 14 cards (Ace through Ten, Page, Knight, Queen, King).</p>
+            <p><strong>Note 3:</strong> An influential Bilibili content creator (registered in Jiading District, Shanghai) shared their experience of legalizing Tarot consulting: operating a storefront as a sole proprietorship with a business license, with the scope of business explicitly defined as "Health Consulting Services (excluding diagnostic services)" and "Information Consulting Services." (Referenced video: BV1WU4y1h77U).</p>
+            <p><strong>Note 4:</strong> In Sandplay Therapy, clients are instructed to first touch the sand to establish a spiritual connection with the sandbox, and then choose and arrange figures on the sand tray themselves.</p>
+        </div>
+    </div>
+    
+    <footer></footer>
+
+</body>
+</html>

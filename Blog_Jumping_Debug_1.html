@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlinkJump: Robustness through Applied Signal Processing</title>
+    <link rel="icon" href="favicon.ico"> 
+    <style>
+        /* 颜色变量和基础设置 (Copied from main portfolio) */
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-pink: #FF1493; /* Fuchsia/Hot Pink */
+            --border-style: 3px solid var(--color-black); 
+            --pixel-font: 'Courier New', monospace; 
+            --main-font: 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+        }
+
+        /* 像素风元素 */
+        .pixel-element {
+            display: inline-block;
+            color: var(--color-pink);
+            font-size: 1.2em;
+            margin: 0 5px;
+            font-family: var(--pixel-font);
+            line-height: 1;
+        }
+        .pixel-heart:before { content: '♥'; }
+        .pixel-star:before { content: '★'; }
+
+        /* 头部/导航样式 (Simplified for Blog Page) */
+        header {
+            background: var(--color-pink);
+            padding: 20px 0;
+            border-bottom: var(--border-style);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--pixel-font);
+            color: var(--color-black);
+        }
+        h1 {
+            font-size: 2.5rem;
+            color: var(--color-black);
+        }
+
+        /* 返回链接 */
+        .back-link {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            padding: 8px 15px;
+            border: var(--border-style);
+            background-color: var(--color-white);
+            text-decoration: none;
+            color: var(--color-black);
+            font-weight: bold;
+            transition: background-color 0.1s;
+        }
+        .back-link:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+            box-shadow: 4px 4px 0px var(--color-black);
+        }
+
+        /* 主体内容 */
+        .container {
+            max-width: 1000px; /* 调整宽度以适应文章内容 */
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .blog-post {
+            border: var(--border-style);
+            padding: 30px;
+            background: var(--color-white);
+            margin-bottom: 40px;
+        }
+
+        .post-meta {
+            font-size: 0.9em;
+            color: var(--color-black);
+            margin-bottom: 25px;
+            border-bottom: 1px dashed var(--color-black);
+            padding-bottom: 10px;
+        }
+        
+        /* 标题和副标题 */
+        .post-title {
+            font-size: 2.2rem;
+            color: var(--color-pink);
+            text-shadow: 2px 2px 0 var(--color-black);
+            margin-bottom: 15px;
+        }
+
+        .post-subtitle {
+            font-size: 1.2rem;
+            font-family: var(--main-font);
+            font-weight: bold;
+            color: var(--color-black);
+            margin-bottom: 25px;
+        }
+
+        /* 内容样式 */
+        .post-content p, .post-content li {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .post-content strong {
+            color: var(--color-pink);
+        }
+
+        .post-content h4 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--color-black);
+            border-left: 5px solid var(--color-pink);
+            padding-left: 10px;
+        }
+
+        /* 代码/Boxed Elements */
+        .code-box {
+            font-family: var(--pixel-font);
+            font-size: 0.9em;
+            background: #f0f0f0;
+            border: 2px dashed var(--color-black);
+            padding: 15px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        /* 表格样式 */
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: var(--pixel-font);
+            font-size: 0.9em;
+        }
+        .tech-table th, .tech-table td {
+            border: 1px solid var(--color-black);
+            padding: 10px;
+            text-align: left;
+        }
+        .tech-table th {
+            background: var(--color-pink);
+            color: var(--color-black);
+        }
+        .tech-table tr:nth-child(even) {
+            background: #f7f7f7;
+        }
+
+        /* 底部 */
+        footer {
+            background: var(--color-black);
+            padding: 40px 0;
+            text-align: center;
+            border-top: var(--border-style);
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <a href="index.html#blog" class="back-link">
+            <span class="pixel-element pixel-star"></span> BACK
+        </a>
+        <div class="header-content">
+            <h1>RENEE PU'S BLOG NOTES</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="blog-post">
+            <h2 class="post-title">BlinkJump: Robustness through Applied Signal Processing</h2>
+            <p class="post-subtitle">A practical engineering note on system integration, application-level debugging, and achieving signal stability in real-time HCI.</p>
+            <div class="post-meta">
+                <span class="pixel-element pixel-heart"></span> Category: Applied HCI, Computer Vision, Signal Processing | Date: Aug 2025
+            </div>
+
+            <div class="post-content">
+                <p>My work on the <span style="color: var(--color-pink);">BlinkJump Runner</span> game required an exceptionally reliable input mechanism: real-time eye-blink detection via webcam. Facing the classic problem of <span style="color: var(--color-pink);">real-world lighting variability</span> breaking the detection system, my approach was not to invent new algorithms, but to employ <span style="color: var(--color-pink);">efficient technology adoption</span> and <span style="color: var(--color-pink);">rigorous application-level debugging</span> to ensure system stability.</p>
+
+                <h4>The Integration Challenge: Adapting to Library Constraints</h4>
+                <p>The core issue lay in the Processing/OpenCV environment, where the standard library lacked critical image normalization tools like cv::equalizeHist(). This forced a practical engineering decision: <span style="color: var(--color-pink);">I adopted the proven principles of Histogram Equalization (HE)</span> and manually implemented them using <span style="color: var(--color-pink);">Processing</span>'s low-level pixel manipulation functions, ensuring a functional substitute for the missing API. </p>
+
+                <h4>Manual Implementation of Contrast Normalization</h4>
+                <p>The entire robustness solution is encapsulated within the preprocessForDetection() function, turning raw video frames into stable, high-contrast inputs for the Haar Cascade classifier.</p>
+                
+                <div class="code-box">
+                    // Manual Contrast Normalization Steps<br>
+                    1. Downscale to LOW_W x LOW_H (240x180) for performance.<br>
+                    2. Convert RGB to Luma (Y) using BT.709 formula.<br>
+                    3. Compute Histogram and Cumulative Distribution Function (CDF).<br>
+                    4. Apply optimized HE mapping to normalize contrast.<br>
+                </div>
+                
+                <p>This implementation was a deliberate act of "getting it to work" reliably. My focus was on two critical engineering details that dictate HE's effectiveness in a computer vision pipeline:</p>
+                
+                <ul>
+                    <li><strong style="color: var(--color-pink);">NPerception Fidelity (BT.709):</strong> I utilized the <span style="color: var(--color-pink);">BT.709 Luma weighting</span>  Y = 0.2126R + 0.7152G + 0.0722B. This superior method ensures the resulting grayscale image accurately reflects perceptual brightness, providing the Haar feature extractor with a high-fidelity signal from the start.</li>
+                    <li><strong style="color: var(--color-pink);">Noise Mitigation CDF_min</strong>: Crucially, I implemented a mechanism to account for the first non-zero CDF value CDF_min. This small code change effectively excludes background noise (e.g., camera black borders or low-density regions) from dominating the contrast stretching, ensuring the enhancement is precisely focused on the high-information regions (the face and eyes).</li>
+                </ul>
+
+                <h4>System Integration and Debugging via DebugCam</h4>
+                <p>The final pillar of robustness was the Application-Level Debugging system I built, which provided immediate, closed-loop feedback on the signal quality.</p>
+                
+                <div class="tech-table">
+                    <tr><th>Component</th><th>Purpose</th><th>Role in Robustness</th></tr>
+                    <tr><td><strong style="color: var(--color-pink);">DebugCam Window</strong></td><td>Dedicated secondary PApplet (Monitor Window).</td><td>Visualizes the <span style="color: var(--color-pink);">post-processed</span> image in real-time. This is the fastest way to confirm that the manual HE implementation is correctly stabilizing contrast across lighting changes.</td></tr>
+                    <tr><td><strong style="color: var(--color-pink);">Hardware Optimization</strong></td><td>Prioritized MJPG encoding and P2D renderer setup.</td><td>Ensured a stable, high-bandwidth data stream at the hardware level before processing even begins, eliminating hardware bottlenecks as a source of instability.</td></tr>
+                    <tr><td><strong style="color: var(--color-pink);">State Monitoring</strong></td><td>Displays `missFrames`, `seenFrames`, `cooldown`.</td><td>Provides the quantitative data needed to tune the state machine's detection thresholds, bridging the gap between stable image signal and reliable behavioral output.</td></tr>
+                </div>
+                
+                <p>This dual-window approach allowed for <span style="color: var(--color-pink);">efficient, rapid iteration</span>. By observing the processed frame alongside the detection metrics, I could quickly confirm that the issue was solved at the signal level, allowing me to trust the input and tune the behavioral state machine with confidence.</p>
+                
+                <p>The overall result is a system where stability is achieved not by novel invention, but by <span style="color: var(--color-pink);">disciplined integration of proven signal processing techniques</span> and a strong focus on <span style="color: var(--color-pink);">application-level engineering for reliable execution</span>.</p>
+                
+            </div>
+        </article>
+    </main>
+
+</body>
+</html>

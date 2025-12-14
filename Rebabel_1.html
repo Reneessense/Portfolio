@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebabel - Renee Portfolio</title>
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Color variables and basic settings (consistent with Hair_Theatre_1) */
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-pink: #FF1493; /* Neon Pink/Magenta */
+            --border-style: 3px solid var(--color-black); /* Thick black border */
+            --pixel-font: 'Courier New', monospace; /* Simulating pixelated feel */
+            --main-font: 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Pixel style elements */
+        .pixel-element {
+            display: inline-block;
+            color: var(--color-pink);
+            font-size: 1.2em;
+            margin: 0 5px;
+            font-family: var(--pixel-font);
+            line-height: 1;
+        }
+        .pixel-heart:before { content: '♥'; }
+        .pixel-star:before { content: '★'; }
+
+        /* Header (consistent with homepage) */
+        header {
+            background: var(--color-pink);
+            padding: 20px 0;
+            border-bottom: var(--border-style);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: box-shadow 0.3s;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--pixel-font);
+            color: var(--color-black);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed var(--color-black);
+            color: var(--color-pink);
+            text-shadow: 1px 1px 0 var(--color-black);
+        }
+
+        /* Main content area */
+        .main-content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Project detail card style */
+        .project-details {
+            border: var(--border-style);
+            padding: 30px;
+            background: var(--color-white);
+            margin-bottom: 40px;
+        }
+
+        /* Video/Hero image area (Placeholder for the project visual) */
+        .hero-image {
+            width: 100%;
+            height: 400px; 
+            background-image: url('Rebabel_Hero.jpg'); /* Placeholder image URL */
+            background-size: cover;
+            background-position: center;
+            border: var(--border-style);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero-image p {
+            color: var(--color-pink);
+            font-family: var(--pixel-font);
+            font-size: 2rem;
+            text-shadow: 2px 2px 0 var(--color-black);
+        }
+
+        /* --- Image Gallery Styles (Copied from Hair_Theatre_1) --- */
+        .design-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .gallery-item {
+            border: 2px solid var(--color-black); 
+            padding: 8px;
+            background-color: var(--color-white);
+            box-shadow: 6px 6px 0px var(--color-pink); 
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .gallery-item:hover {
+            box-shadow: 8px 8px 0px var(--color-pink);
+            transform: translate(-2px, -2px);
+        }
+
+        .gallery-item-placeholder {
+            width: 100%;
+            height: 250px; /* Adjust height as needed */
+            background-color: var(--color-black);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .gallery-item-placeholder p {
+            color: var(--color-pink);
+            font-family: var(--pixel-font);
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 0 var(--color-black);
+        }
+        /* --- Image Gallery Styles End --- */
+        
+        /* Tag styles */
+        .tags-container {
+            border-top: var(--border-style);
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .tag {
+            display: inline-block;
+            font-size: 0.9em;
+            font-family: var(--pixel-font);
+            color: var(--color-black);
+            background-color: var(--color-white);
+            border: var(--border-style);
+            padding: 4px 10px;
+            margin: 5px 5px 5px 0;
+            transition: background-color 0.1s, color 0.1s;
+        }
+        .tag:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+        }
+
+        /* Navigation buttons */
+        .navigation {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .nav-button {
+            text-decoration: none;
+            color: var(--color-white);
+            font-weight: bold;
+            padding: 10px 20px;
+            border: var(--border-style);
+            background-color: var(--color-pink);
+            transition: background-color 0.1s ease, box-shadow 0.1s ease, transform 0.1s;
+            display: inline-block;
+            font-family: var(--pixel-font);
+            margin: 0 10px;
+        }
+        .nav-button:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+            box-shadow: 4px 4px 0px var(--color-black);
+            transform: translate(-2px, -2px);
+        }
+        .nav-button.secondary {
+            background-color: var(--color-white);
+            color: var(--color-black);
+        }
+        .nav-button.secondary:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Rebabel <span class="pixel-element pixel-star"></span></h1>
+            <p style="font-family: var(--pixel-font);">A Speculative Design Critique on Universal Translation</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="hero-image"></div>
+
+        <section class="project-details">
+            <h2 id="abstract">Abstract & Concept</h2>
+            <p style="font-style: italic;">
+                <strong style="color: var(--color-pink);">"And the Lord said, Behold, the people is one, and they have all one language..."</strong>
+            </p>
+            <p>
+                Rebabel is a conceptual art and speculative design project that critiques contemporary communication technologies—specifically, translation engines and global communication platforms—by reimagining the biblical Tower of Babel. 
+            </p>
+            <p>
+                By intertwining the theological narrative of division with current technological frameworks, <strong style="color: var(--color-pink);">Rebabel frames communication as both a spiritual and political act</strong>. It questions the idea of a 'universal' language offered by AI, highlighting the power structures and hidden biases embedded in these systems.
+            </p>
+
+            <h2 id="visual-design">Visual Narrative</h2>
+            <p>
+                The visual composition borrows the aesthetics of illuminated manuscripts and speculative infographics, merging theological symbolism with data visualization to question the neutrality of “universal” technologies. 
+            </p>
+            <p>
+                It uses a highly detailed, fragmented visual language to explore how meaning is lost, manipulated, or controlled when funneled through automated linguistic systems.
+            </p>
+
+            <div class="design-gallery">
+                <div class="gallery-item">
+                    <div class="gallery-item-placeholder" style="background-image: url('Rebabel-2.jpg');"></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-placeholder" style="background-image: url('Rebabel-3.jpg');"></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-item-placeholder" style="background-image: url('Rebabel-4.jpg');"></div>
+                </div>
+            </div>
+
+            <div class="tags-container">
+                <span class="tag">Speculative Design</span>
+                <span class="tag">Media Archaeology</span>
+                <span class="tag">Posthuman Communication</span>
+                <span class="tag">Religious Symbolism</span>
+                <span class="tag">Visual Narrative</span>
+                <span class="tag">Critical Media Art</span>
+            </div>
+        </section>
+
+        <nav class="navigation">
+            <a href="index.html#installation" class="nav-button secondary">← Back to Portfolio</a>
+            <a href="touch_across_distance_1.html" class="nav-button">Next Project →</a>
+        </nav>
+    </main>
+    
+    <script>
+        // Smooth scrolling for anchor links (consistent with Hair_Theatre_1)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to header (consistent with Hair_Theatre_1)
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

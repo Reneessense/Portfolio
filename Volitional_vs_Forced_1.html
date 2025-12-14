@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volitional vs. Forced - Renee Portfolio</title>
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* 颜色变量和基础设置 (与主页一致) */
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-pink: #FF1493; /* 荧光粉色/品红色 */
+            --border-style: 3px solid var(--color-black); /* 粗黑边框 */
+            --pixel-font: 'Courier New', monospace; /* 模拟像素感 */
+            --main-font: 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* 像素风元素 */
+        .pixel-element {
+            display: inline-block;
+            color: var(--color-pink);
+            font-size: 1.2em;
+            margin: 0 5px;
+            font-family: var(--pixel-font);
+            line-height: 1;
+        }
+        .pixel-heart:before { content: '♥'; }
+        .pixel-star:before { content: '★'; }
+
+        /* 头部 (与主页一致) */
+        header {
+            background: var(--color-pink);
+            padding: 20px 0;
+            border-bottom: var(--border-style);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: box-shadow 0.3s;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--pixel-font);
+            color: var(--color-black);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed var(--color-black);
+            color: var(--color-pink);
+            text-shadow: 1px 1px 0 var(--color-black);
+        }
+
+        /* 主内容区域 */
+        .main-content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* 项目详情卡片样式 */
+        .project-details {
+            border: var(--border-style);
+            padding: 30px;
+            background: var(--color-white);
+            margin-bottom: 40px;
+        }
+
+        /* ------------------------------------- */
+        /* 修复后的 Hero Image CSS */
+        /* ------------------------------------- */
+        .hero-image-container {
+            width: 100%;
+            height: 400px; /* 设置固定高度 */
+            border: var(--border-style);
+            margin-bottom: 30px;
+            /* 确保图片超出容器时被裁剪 */
+            overflow: hidden; 
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            /* 确保图片填充整个容器并保持比例，类似于 background-size: cover; */
+            object-fit: cover; 
+            /* 移除可能出现的底部空白 */
+            display: block;
+        }
+        /* ------------------------------------- */
+
+        /* --- 图片画廊样式 --- */
+        .design-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .gallery-item {
+            border: 2px solid var(--color-black); 
+            padding: 8px;
+            background-color: var(--color-white);
+            box-shadow: 6px 6px 0px var(--color-pink); 
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .gallery-item:hover {
+            box-shadow: 8px 8px 0px var(--color-pink);
+            transform: translate(-2px, -2px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* --- 图片画廊样式 结束 --- */
+        
+        /* 标签样式 (与主页导航/按钮风格统一) */
+        .tags-container {
+            border-top: var(--border-style);
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .tag {
+            display: inline-block;
+            font-size: 0.9em;
+            font-family: var(--pixel-font);
+            color: var(--color-black);
+            background-color: var(--color-white);
+            border: var(--border-style);
+            padding: 4px 10px;
+            margin: 5px 5px 5px 0;
+            transition: background-color 0.1s, color 0.1s;
+        }
+        .tag:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+        }
+
+        /* Publication style */
+        .publication-item {
+            border: 1px solid var(--color-pink);
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fff0f5;
+        }
+        .publication-title {
+            font-weight: bold;
+            color: var(--color-pink);
+            margin-bottom: 5px;
+        }
+        .publication-authors {
+            font-style: italic;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        .publication-venue {
+            font-size: 0.9em;
+        }
+
+        /* 导航按钮 (与主页导航/按钮风格统一) */
+        .navigation {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .nav-button {
+            text-decoration: none;
+            color: var(--color-white);
+            font-weight: bold;
+            padding: 10px 20px;
+            border: var(--border-style);
+            background-color: var(--color-pink);
+            transition: background-color 0.1s ease, box-shadow 0.1s ease, transform 0.1s;
+            display: inline-block;
+            font-family: var(--pixel-font);
+            margin: 0 10px;
+        }
+        .nav-button:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+            box-shadow: 4px 4px 0px var(--color-black);
+            transform: translate(-2px, -2px);
+        }
+        .nav-button.secondary {
+            background-color: var(--color-white);
+            color: var(--color-black);
+        }
+        .nav-button.secondary:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Volitional vs. Forced <span class="pixel-element pixel-heart"></span></h1>
+            <p style="font-family: var(--pixel-font);">A Field Study of Just-in-Time Interventions</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="hero-image-container">
+            <img src="Volitional_Hero.jpg" alt="Volitional vs Forced Hero Image">
+        </div>
+
+
+        <section class="project-details">
+            <h2 id="abstract">Abstract</h2>
+            <p>This research investigates the effectiveness of different types of digital attention recovery interventions—specifically comparing "volitional" (user-initiated) and "forced" (system-initiated) breaks. Through a field study, we deploy and test a system designed to prompt digital workers to step away from their screens. We analyze the impact of intervention type on perceived autonomy, task performance, and long-term user adherence, providing critical insights for designing psychologically sound just-in-time nudges in ubiquitous computing environments.</p>
+
+            <h2 id="methodology">Methodology</h2>
+            <p>We conducted a 48-hour field study with participants engaged in typical digital work. The study utilized a custom-built software tool that randomly assigned participants to either the volitional or forced intervention group. Data collection included objective metrics (screen time, task completion rate) and subjective reports (surveys on well-being and perceived control).</p>
+
+            <h2 id="findings">Key Findings</h2>
+            <ul>
+                <li>The volitional intervention group reported significantly higher levels of autonomy and motivation for future break-taking.</li>
+                <li>While forced interventions provided immediate attention recovery, their long-term sustainability was lower due to psychological reactance.</li>
+                <li>We developed a set of design recommendations for implementing autonomy-supportive features in JIT systems.</li>
+            </ul>
+
+            <div class="design-gallery">
+                <div class="gallery-item">
+                    <img src="volitional_forced-1.png" alt="Study Setup Diagram">
+                </div>
+                <div class="gallery-item">
+                    <img src="volitional_forced-2.png" alt="Volitional Intervention Interface">
+                </div>
+                <div class="gallery-item">
+                    <img src="volitional_forced-3.jpg" alt="Forced Intervention Screen">
+                </div>
+            </div>
+
+            <h2 id="publications">Publications</h2>
+            <div class="publication-item">
+                <div class="publication-title">Volitional vs. Forced: A Field Study of Just in-Time Interventions for Digital Attention Recovery</div>
+                <div class="publication-authors">*Xinyi Pu, Changqing Xu, *Yansong Li, Yue Yuan, Thalia Lee, Chen Ye, Lisiqi Zhang, and Jingyi Duan </div>
+                <div class="publication-venue">2025. Volitional vs. Forced: A Field Study of Just in-Time Interventions for Digital Attention Recovery. In Companion of the 2025 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp Companion ’25), October 12–16, 2025, Espoo, Finland. ACM, NewYork, NY, USA, 5 pages. https://doi.org/10.1145/3714394.3754436</div>
+            </div>
+
+            <div class="tags-container">
+                <span class="tag">Attention Design</span>
+                <span class="tag">Autonomy Support</span>
+                <span class="tag">Behavioral HCI</span>
+                <span class="tag">Ubiquitous Computing</span>
+                <span class="tag">Human-Centered AI</span>
+                <span class="tag">Psychological Interaction</span>
+            </div>
+        </section>
+
+        <nav class="navigation">
+            <a href="index.html#research" class="nav-button secondary">← Back to Portfolio</a>
+            <a href="Yukis_Seven_Rooms_1.html" class="nav-button">Next Project →</a>
+        </nav>
+    </main>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

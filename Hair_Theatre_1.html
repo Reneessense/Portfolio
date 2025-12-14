@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Theatre - Renee Portfolio</title>
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Color variables and basic settings (consistent with homepage) */
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-pink: #FF1493; /* Neon Pink/Magenta */
+            --border-style: 3px solid var(--color-black); /* Thick black border */
+            --pixel-font: 'Courier New', monospace; /* Simulating pixelated feel */
+            --main-font: 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Pixel style elements */
+        .pixel-element {
+            display: inline-block;
+            color: var(--color-pink);
+            font-size: 1.2em;
+            margin: 0 5px;
+            font-family: var(--pixel-font);
+            line-height: 1;
+        }
+        .pixel-heart:before { content: '♥'; }
+        .pixel-star:before { content: '★'; }
+
+        /* Header (consistent with homepage) */
+        header {
+            background: var(--color-pink);
+            padding: 20px 0;
+            border-bottom: var(--border-style);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: box-shadow 0.3s;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--pixel-font);
+            color: var(--color-black);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dashed var(--color-black);
+            color: var(--color-pink);
+            text-shadow: 1px 1px 0 var(--color-black);
+        }
+
+        /* Main content area */
+        .main-content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Project detail card style */
+        .project-details {
+            border: var(--border-style);
+            padding: 30px;
+            background: var(--color-white);
+            margin-bottom: 40px;
+        }
+
+        /* Video/Hero image area */
+        .hero-video-container {
+            width: 100%;
+            height: auto; /* Allow video content to define height */
+            background-color: var(--color-black);
+            border: var(--border-style);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .hero-video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* --- Image Gallery Styles --- */
+        .design-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .gallery-item {
+            border: 2px solid var(--color-black); 
+            padding: 8px;
+            background-color: var(--color-white);
+            box-shadow: 6px 6px 0px var(--color-pink); 
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .gallery-item:hover {
+            box-shadow: 8px 8px 0px var(--color-pink);
+            transform: translate(-2px, -2px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        /* --- Image Gallery Styles End --- */
+
+
+        /* Tag styles */
+        .tags-container {
+            border-top: var(--border-style);
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        .tag {
+            display: inline-block;
+            font-size: 0.9em;
+            font-family: var(--pixel-font);
+            color: var(--color-black);
+            background-color: var(--color-white);
+            border: var(--border-style);
+            padding: 4px 10px;
+            margin: 5px 5px 5px 0;
+            transition: background-color 0.1s, color 0.1s;
+        }
+        .tag:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+        }
+
+        /* Navigation buttons */
+        .navigation {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .nav-button {
+            text-decoration: none;
+            color: var(--color-white);
+            font-weight: bold;
+            padding: 10px 20px;
+            border: var(--border-style);
+            background-color: var(--color-pink);
+            transition: background-color 0.1s ease, box-shadow 0.1s ease, transform 0.1s;
+            display: inline-block;
+            font-family: var(--pixel-font);
+            margin: 0 10px;
+        }
+        .nav-button:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+            box-shadow: 4px 4px 0px var(--color-black);
+            transform: translate(-2px, -2px);
+        }
+        .nav-button.secondary {
+            background-color: var(--color-white);
+            color: var(--color-black);
+        }
+        .nav-button.secondary:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Hair Theatre: A Ritual of Bodily Revival <span class="pixel-element pixel-heart"></span></h1>
+            <p style="font-family: var(--pixel-font);">Exploring micro-emotions through tactile, sonic textile interaction</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="hero-video-container">
+
+            <iframe
+                width="100%"
+                height="500"
+                src="https://www.youtube.com/embed/VSgHCk7LQd4"
+                title="Hair Theatre – Wearable Tactile MIDI Instrument"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+
+
+        <section class="project-details">
+            <h2 id="abstract">Abstract</h2>
+            <p>
+                Hair Theatre transforms the everyday frustration of tangled hair into a tactile and sonic expression of subtle, often unspoken "micro-emotions". These quiet moments of tension—too minor to explain yet strong enough to unsettle—are made tangible through a singular textile system: a felted structure of heat-pressed conductive PLA blended with real hair and wool. When touched or stretched, this material generates sound through <strong style="color: var(--color-pink);">capacitive sensing</strong>, allowing participants to feel, hear, and gently soothe the hidden emotions.
+            </p>
+            <p>
+                Through the fusion of material, body, and sound, the work transforms fragility into connection—revealing that even minor "breakdowns" can be moments of care and empathy. Intertwining handcraft and digital sensing, Hair Theatre translates embodied emotions into tangible form, exploring how subtle feelings can find clarity and resonance through material touch and sonic response.
+            </p>
+
+            <h2 id="design-mechanism">Design & Mechanism</h2>
+            <p>
+                The core interaction mechanism is based on <strong style="color: var(--color-pink);">capacitive sensing</strong>, with sensors ingeniously integrated within a flexible textile structure felted from a blend of real hair, wool, and conductive PLA fibers.
+            </p>
+            <p>
+                At the heart of the installation are <strong style="color: var(--color-pink);">nine suspended felted clusters</strong>—each an entanglement of wool, human hair, and conductive PLA. These clusters are connected by conductive threads to form a unified capacitive sensing circuit. The conductive threads are deliberately tied with <strong style="color: var(--color-pink);">knots</strong> to enhance haptic friction, evoking the physical tension associated with tangled hair.
+            </p>
+            <p>
+                When a user touches or pulls a cluster, the capacitive sensing triggers a sonic response. Each cluster (node) triggers one of nine fixed pitches (A-G, plus higher octave A-B), which layer to create a polyphonic emotional field, translating emotional friction into sonic resonance.
+            </p>
+
+            <div class="design-gallery">
+                <div class="gallery-item">
+                    <img src="Hair_Theatre-1.jpg" alt="Hair Theatre Material Detail (Felted Cluster)">
+                </div>
+                <div class="gallery-item">
+                    <img src="Hair_Theatre-2.jpg" alt="Hair Theatre Conductive Thread with Knot">
+                </div>
+                <div class="gallery-item">
+                    <img src="Hair_Theatre-3.jpg" alt="Hair Theatre Making Process">
+                </div>
+            </div>
+
+            <h2 id="context">Context & Authors</h2>
+            <p>
+                The work is exhibited as an immersive interactive installation, aiming to transform the suppressed, minor "breakdowns" of daily life into a silent ritual of bodily resonance and renewal. Through tactile and sonic interaction, the piece offers a way to dialogically engage the body, where care is enacted through vibration, touch, and resonance.
+            </p>
+            <p>
+                The work is authored by Xinyi Pu (xpux@pratt.edu) and Mengqi Zhao (mzhao31@pratt.edu), both from Pratt Institute.
+            </p>
+
+            <div class="tags-container">
+                <span class="tag">Interactive Installation</span>
+                <span class="tag">Tactile Art</span>
+                <span class="tag">Embodied Interaction</span>
+                <span class="tag">Conductive Textile</span>
+                <span class="tag">Micro-Emotion</span>
+                <span class="tag">Sound Feedback</span>
+                <span class="tag">Craft-Technology Integration</span>
+                <span class="tag">Capacitive Sensing</span>
+            </div>
+        </section>
+
+        <nav class="navigation">
+            <a href="index.html#installation" class="nav-button secondary">← Back to Portfolio</a>
+            <a href="Rebabel_1.html" class="nav-button">Next Project →</a>
+        </nav>
+    </main>
+    
+    <script>
+        // Smooth scrolling for anchor links (consistent with Hair_Theatre_1)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to header (consistent with Hair_Theatre_1)
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

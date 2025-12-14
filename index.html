@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reneessense - Design & Research Portfolio</title>
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* 颜色变量和基础设置 */
+        :root {
+            --color-black: #000000;
+            --color-white: #FFFFFF;
+            --color-pink: #FF1493; /* 荧光粉色/品红色 */
+            --border-style: 3px solid var(--color-black); /* 粗黑边框，强调矩形感 */
+            --pixel-font: 'Courier New', monospace; /* 模拟像素感或使用等宽字体 */
+            --main-font: 'Arial', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--main-font);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+            min-height: 200vh; /* 给页面足够空间 */
+        }
+
+        /* 像素风元素 */
+        .pixel-element {
+            display: inline-block;
+            color: var(--color-pink);
+            font-size: 1.2em;
+            margin: 0 5px;
+            font-family: var(--pixel-font);
+            line-height: 1;
+        }
+        .pixel-heart:before { content: '♥'; }
+        .pixel-star:before { content: '★'; }
+
+        /* ------------------------------------- */
+        /* 新增：粉色爱心 Logo 样式 */
+        .page-logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10000;
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-white); 
+            border-radius: 12px; 
+            border: 2px solid var(--color-black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .page-logo:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 4px 4px 0px var(--color-pink), 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .heart-icon {
+            color: var(--color-pink); 
+            font-size: 1.8em; 
+            line-height: 1; 
+            font-weight: 900;
+        }
+        /* ------------------------------------- */
+
+        /* 头部 */
+        header {
+            background: var(--color-pink);
+            padding: 20px 0;
+            border-bottom: var(--border-style);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: box-shadow 0.3s; /* 添加过渡效果 */
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2 {
+            font-family: var(--pixel-font);
+            color: var(--color-black);
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--color-black);
+            margin-bottom: 20px;
+            padding: 5px 10px;
+            border: var(--border-style);
+            display: inline-block;
+            background: var(--color-white);
+        }
+
+        /* 导航菜单 */
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--color-black);
+            font-weight: bold;
+            padding: 8px 15px;
+            border: var(--border-style);
+            background-color: var(--color-white);
+            transition: background-color 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        .nav-menu a:hover {
+            background-color: var(--color-black);
+            color: var(--color-pink);
+            box-shadow: 4px 4px 0px var(--color-black);
+        }
+
+        /* 主体内容 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+            border: var(--border-style);
+            padding: 30px;
+            background: var(--color-white);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: var(--border-style);
+            padding-bottom: 10px;
+            color: var(--color-pink);
+            text-shadow: 1px 1px 0 var(--color-black);
+        }
+
+        .intro-text, .publish-list {
+            font-size: 1.1rem;
+            max-width: 900px;
+            margin: 15px auto;
+            line-height: 1.8;
+            text-align: left;
+            padding: 0 10px;
+        }
+
+        /* ********** ABOUT ME 图片样式 ********** */
+        .about-image {
+            width: 100%;
+            max-width: 350px;
+            float: right;
+            margin: 0 0 20px 30px;
+            border: var(--border-style);
+            background: var(--color-white);
+            padding: 10px;
+            
+            /* 像素风阴影/边框效果 */
+            box-shadow: 8px 8px 0px var(--color-pink);
+            
+            overflow: hidden; 
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: none;
+        }
+        /* **************************************** */
+        
+        /* Publish 列表样式 */
+        .publish-item {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--color-black);
+        }
+
+        /* 作品卡片网格 */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            border: var(--border-style);
+            background: var(--color-white); /* 确保卡片整体背景是白色 */
+            overflow: hidden;
+            transition: box-shadow 0.1s ease, transform 0.1s ease;
+            cursor: pointer;
+            position: relative;
+            /* 新增：确保卡片内容（图片+文字）是垂直堆叠的 */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            box-shadow: 6px 6px 0px var(--color-pink);
+            transform: translate(-3px, -3px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 180px; /* 固定图片显示区域的高度 */
+            background: var(--color-black); /* 黑色背景 */
+            border-bottom: var(--border-style);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* 新增：让图片区域填充完卡片可用的顶部空间（在本例中已被固定高度覆盖） */
+            flex-shrink: 0; 
+            overflow: hidden; /* 隐藏超出边界的图片部分 */
+        }
+
+        /* 核心修改：让图片填满其父元素 .project-image，同时保持纵横比 */
+        .project-image img {
+            width: 100%;
+            height: 100%; 
+            object-fit: cover; /* 关键：图片会覆盖整个区域，保持纵横比，可能会裁剪 */
+            display: block;
+            border: none;
+        }
+
+        .image-placeholder {
+            color: var(--color-pink);
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: var(--pixel-font);
+        }
+
+        .project-info {
+            padding: 15px;
+            background: var(--color-white); /* 确保文字区域是白色 */
+            /* 新增：允许文字区域占据剩余空间 */
+            flex-grow: 1; 
+        }
+
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--color-pink);
+        }
+
+        .project-year {
+            color: var(--color-black);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--color-black);
+            display: inline-block;
+            padding-bottom: 2px;
+        }
+
+        /* CV 链接样式 */
+        .cv-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .cv-link a {
+            font-size: 1.2rem;
+            color: var(--color-white);
+            background: var(--color-pink);
+            border: var(--border-style);
+            padding: 10px 20px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            transition: background 0.1s ease;
+            margin-bottom: 20px; /* 底部间距 */
+        }
+        .cv-link a:hover {
+            background: var(--color-black);
+            color: var(--color-pink);
+        }
+
+        /* 底部 */
+        footer {
+            background: var(--color-black);
+            padding: 40px 0;
+            text-align: center;
+            border-top: var(--border-style);
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--color-white);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            color: var(--color-pink);
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid var(--color-pink);
+            transition: background 0.1s ease;
+        }
+
+        .contact-links a:hover {
+            background: var(--color-pink);
+            color: var(--color-black);
+        }
+
+        /* 移动设备适配 */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .nav-menu { flex-wrap: wrap; gap: 10px; }
+            .container { padding: 20px 10px; }
+            section { padding: 15px; }
+            /* 移动端调整 logo 位置 */
+            .page-logo {
+                top: 10px;
+                left: 10px;
+                width: 40px;
+                height: 40px;
+            }
+            .heart-icon {
+                font-size: 1.5em;
+            }
+            /* 移动设备适配：清除浮动，让图片居中显示 */
+            .about-image {
+                float: none; 
+                margin: 20px auto; 
+                max-width: 80%;
+            }
+        }
+
+        /* --- Falling Hearts Animation (FIXED VERSION) --- */
+        .falling-heart {
+            position: absolute;
+            top: 0;
+            font-size: 24px;
+            animation: fall 4.5s linear forwards;
+            pointer-events: none;
+            z-index: 999999;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <a href="#top" class="page-logo" title="Back to Top">
+        <span class="heart-icon">&#x2764;</span> 
+    </a>
+    <header>
+        <div class="header-content">
+            <h1><span class="pixel-element pixel-bow"></span> RENEE PU <span class="pixel-element pixel-star"></span></h1>
+            <nav class="nav-menu">
+                <a href="#about">About</a>
+                <a href="#publish">Publication</a>
+                <a href="#research">Research</a>
+                <a href="#installation">Installation</a>
+                <a href="#design">Design</a>
+                <a href="#blog">Blog Notes</a>
+                <a href="#contact">CV & Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about">
+            <h2 class="section-title">ABOUT ME</h2>
+            
+            <div class="about-image">
+                <img src="about_me_photo.png" alt="Renee Pu in an outdoor setting with a selective color effect." />
+            </div>
+            <p class="intro-text">
+                <span class="pixel-element pixel-star"></span> I am <strong style="color: var(--color-pink);">Xinyi Renee Pu</strong> 浦心仪 working across sensory design, human–computer interaction, and material-based media art. My background spans <span style="color: var(--color-pink);">mathematics</span> (B.S.) and <span style="color: var(--color-pink);">religious studies</span> (B.A.) from Fudan University, and an M.I.D. in <span style="color: var(--color-pink);">Global Innovation Design</span> at Pratt Institute, with exchange experiences in <span style="color: var(--color-pink);">IDE</span> program at Imperial College London / RCA and Media Design in Keio University’s <span style="color: var(--color-pink);">Embodied Media Lab</span>.
+            </p>
+
+            <p class="intro-text">
+                <span class="pixel-element pixel-star"></span> My research explores marginal senses—<strong style="color: var(--color-pink);">smell, touch, and sound</strong>—as primary interfaces for interaction, combining my interest of <strong style="color: var(--color-pink);">soft wearables, digital knitting, and smell-based fabrication</strong> to reimagine how humans perceive, negotiate, and co-create meaning with technology. I aim to design systems that are emotionally grounded, culturally sensitive, and materially expressive, bridging technical prototyping with philosophical reflection on perception and embodiment.
+            </p> 
+        </section>
+
+        <section id="publish">
+            <h2 class="section-title">PUBLICATION</h2>
+            <div class="publish-list">
+                <div class="publish-item">
+                    <span class="pixel-element pixel-heart"></span> [1] 
+                    <strong style="color: var(--color-pink);">Pu, X.</strong>, Liu, Y., Zhang, L., Li, Y., & Yuan, Y. (2025). Conjugate Breathing: A Tension Between Human and Sea.In DIS Companion '25, 163-168. ACM.
+                </div>
+                <div class="publish-item">
+                    <span class="pixel-element pixel-heart"></span> [2] 
+                    *<strong style="color: var(--color-pink);">Pu, X.</strong>, Xu, C., *Li, Y., Yuan, Y., Lee, T., Ye, C., Zhang, L., & Duan, J. (2025). Volitional vs. Forced: A Field Study of Just-in-Time Interventions for Digital Attention Recovery.In UbiComp Companion '25. ACM. (Accepted) 
+                </div>
+                <div class="publish-item">
+                    <span class="pixel-element pixel-heart"></span> [3] Qu, N., Mo, J., Liu, L., 
+                    <strong style="color: var(--color-pink);">Pu, X.</strong>, Zhang, S., & Wang, Q. (2025). ShoulDex: A Panel-Woven Textile Sensing System for Rotator Cuff Rehabilitation.In UbiComp Companion '25. ACM. (Accepted) 
+                </div>
+            </div>
+        </section>
+
+        <section id="research">
+            <h2 class="section-title">RESEARCH</h2>
+            <div class="portfolio-grid">
+                <div class="project-card" onclick="openProject('aromatrace')">
+                    <div class="project-image"><img src="aromatrace.jpg" alt="AromaTrace"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">AromaTrace</h3>
+                        <p class="project-year">2025</p>
+                        <p class="project-description">A paper-based, friction-activated scent printing system that invites people to compose with smell as a primary medium.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openProject('volitional_vs_forced')">
+                    <div class="project-image"><img src="Volitional_Hero.jpg" alt="Volitional_vs_Forced"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Volitional vs. Forced</h3>
+                        <p class="project-year">2025</p>
+                        <p class="project-description">A Field Study of Just-in-Time Interventions for Digital Attention Recovery.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="openProject('yukis-seven-rooms')">
+                    <div class="project-image"><img src="Yukis_Rooms_Hero.jpg" alt="Yuki's seven rooms"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Yuki's Seven Rooms</h3>
+                        <p class="project-year">2025</p>
+                        <p class="project-description">An immersive VR narrative experience that invites participants to reconstruct the identity of an unseen protagonist, Yuki.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openProject('shouldex')">
+                    <div class="project-image"><img src="Shouldex_Hero.png" alt="ShoulDex"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">ShoulDex (Wearable Sensor)</h3>
+                        <p class="project-year">2025</p>
+                        <p class="project-description">A Panel-Woven Textile Sensing System for Rotator Cuff Rehabilitation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="installation">
+            <h2 class="section-title">INSTALLATION / ART</h2>
+            <div class="portfolio-grid">
+                <div class="project-card" onclick="openProject('conjugate-breathing')">
+                    <div class="project-image"><img src="Conjugate_breathing.jpg" alt="Conjuagte Breathing"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Conjugate Breathing</h3>
+                        <p class="project-year">2025</p>
+                        <p class="project-description">An interactive installation that explores the asynchronous breathing rhythms between humans and the sea.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="openProject('hair-theatre')">
+                    <div class="project-image"><img src="Hair_Theatre_Hero.png" alt="Hair Theatre"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Hair Theatre</h3>
+                        <p class="project-year">2025</p>
+                        <p class="project-description">Exploring interactive hair as a medium for emotional expression in performance and HCI.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="openProject('rebabel')">
+                    <div class="project-image"><img src="Rebabel_Hero.jpg" alt="Rebabel"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Rebabel</h3>
+                        <p class="project-year">2022</p>
+                        <p class="project-description">An interactive art installation exploring how invisible cultural filters create subtle barriers between people.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openProject('touch-across-distance')">
+                    <div class="project-image"><img src="Touch_across_distance_Hero.jpg" alt="Touch Across Distance"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Touch Across Distance</h3>
+                        <p class="project-year">2024</p>
+                        <p class="project-description">An art installation that transforms light into a mirror of our digital entanglement — hands pressed against glowing screens.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openProject('demons-spine')">
+                    <div class="project-image"><img src="Demons_spine_Detail_Hero.jpg" alt="Demon's Spine"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Demon's Spine</h3>
+                        <p class="project-year">2024</p>
+                        <p class="project-description">A light-based sculpture in which a black hand grips a spine of sculpted vertebrae, each bone ending in a black orb that glows from within.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="design">
+            <h2 class="section-title">DESIGN PROJECTS</h2>
+            <div class="portfolio-grid">
+                <div class="project-card" onclick="openProject('game-controller')">
+                    <div class="project-image"><img src="Game_controller_Hero.jpg" alt="Game Controller"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Game Controller</h3>
+                        <p class="project-year">2025</p>
+                        <p class="project-description">Developing a human-centered game controller model based on 3D scanning data.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openProject('chromatic-layers')">
+                    <div class="project-image"><img src="Chromatic_Layers_Hero.jpg" alt="Chromatic Layers"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Chromatic Layers</h3>
+                        <p class="project-year">2024</p>
+                        <p class="project-description">An experimental garment inspired by the lilac-breasted roller, layered in patchwork to echo the bird's vivid gradations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog">
+            <h2 class="section-title">BLOG & NOTES</h2>
+            <div class="portfolio-grid">
+                <div class="project-card" onclick="openProject('blog-1')">
+                    <div class="project-image"><img src="Blink_Jump_Hero.png" alt="Blink Jump"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">BlinkJump: Robustness through Applied Signal Processing</h3>
+                        <p class="project-year">2025</p>
+                        <p class="project-description">Notes on real-time system integration, application-level debugging, and achieving reliable HCI input through applied signal processing.</p>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="openProject('blog-2')">
+                    <div class="project-image"><img src="Paper_1.png" alt="The Categorization of Indigenous Beliefs in Pluralistic Healing Experiences"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">The Categorization of Indigenous Beliefs in Pluralistic Healing Experiences</h3>
+                        <p class="project-year">2022</p>
+                        <p class="project-description">A study and discussion on the overlapping therapeutic spaces of Primary Religions, Mainstream Religions, and Modern Medicine.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" onclick="openProject('blog-3')">
+                    <div class="project-image"><img src="Paper_2.png" alt="The Categorization of Indigenous Beliefs in Pluralistic Healing Experiences"></div>
+                    <div class="project-info">
+                        <h3 class="project-title">Occult Elements in Urban Chinese Life: The Psychologization of Tarot Reading</h3>
+                        <p class="project-year">2023</p>
+                        <p class="project-description">Analyzing the rise of Tarot in digital urban China, this project uses a user study and the Interaction Ritual Chain framework to frame occult consultation as a low-barrier Spiritual UX alternative for mental health support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="contact-info">
+            <h3 style="color: var(--color-pink); margin-bottom: 10px; font-family: var(--pixel-font);">CV & CONTACT</h3>
+            <div class="cv-link">
+                <a href="CV-PuXinyi.pdf" download="Renee_Pu_CV.pdf">DOWNLOAD CV (PDF)</a>
+            </div>
+
+            <p>Independent Researcher & Artist<br>
+            Pratt Institute</p>
+            <div class="contact-links">
+                <a href="mailto:xpux@pratt.edu">Email: xpux@pratt.edu</a>
+                <a href="https://scholar.google.com/citations?user=HYYFpNsAAAAJ&hl=en&oi=sra">Google Scholar</a>
+                <a href="https://www.linkedin.com/in/xinyi%EF%BC%88renee%EF%BC%89-pu-731b8921a/?locale=zh_CN">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function openProject(projectId) {
+            // Map project IDs to their respective detail page files
+            const projectMap = {
+                'aromatrace': 'AromaTrace_1.html',
+                'volitional_vs_forced': 'Volitional_vs_Forced_1.html', 
+                'yukis-seven-rooms': 'Yukis_Seven_Rooms_1.html', 
+                'shouldex': 'ShoulDex_1.html',
+                'conjugate-breathing': 'Conjugate_Breathing_1.html',
+                'hair-theatre': 'Hair_Theatre_1.html',
+                'rebabel': 'Rebabel_1.html',
+                'touch-across-distance': 'Touch_Across_Distance_1.html',
+                'demons-spine': 'Demons_Spine_1.html',
+                'game-controller': 'Game_Controller_1.html',
+                'chromatic-layers': 'Chromatic_Layers_1.html',
+                'blog-1': 'Blog_Jumping_Debug_1.html',
+                'blog-2': 'Paper_1.html',
+                'blog-3': 'Paper_2.html',
+
+
+            };
+
+            const targetFile = projectMap[projectId];
+            
+            if (targetFile) {
+                // 执行跳转
+                window.location.href = targetFile;
+            } else {
+                // 其他未创建详情页的项目保留 Alert
+                alert(`Opening project: ${projectId}This function in a live site would navigate to a detailed project page.`);
+            }
+        }
+
+        // 导航平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#top') {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    return;
+                }
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 滚动时为头部添加像素风阴影效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 0 0 var(--color-pink)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // 生成随机小爱心（黑 + 白）
+        function createHeart() {
+            const heart = document.createElement("div");
+            
+            // 随机选择 ♡ / 🤍 / 🖤
+            const hearts = ["🤍", "🖤"];
+            heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+
+            heart.classList.add("falling-heart");
+
+            // 随机左右位置
+            heart.style.left = (Math.random() * window.innerWidth) + "px";
+
+            // 随机大小
+            heart.style.fontSize = (18 + Math.random() * 12) + "px";
+
+            document.body.appendChild(heart);
+
+            // 动画结束自动移除
+            setTimeout(() => {
+                heart.remove();
+            }, 4500);
+        }
+
+        // 定时生成爱心
+        let heartInterval = setInterval(createHeart, 350);
+
+        // 停止生成新的爱心
+        function stopHearts() {
+            if (heartInterval !== null) {
+                clearInterval(heartInterval);
+                heartInterval = null;
+            }
+        }
+
+        // 监听点击 / 滚动事件来停止生成新的爱心
+        window.addEventListener("click", stopHearts, { once: true });
+        window.addEventListener("scroll", stopHearts, { once: true });
+    </script>
+</body>
+</html>
